@@ -5,12 +5,21 @@
 1. Create a new Vite project:
 ```bash
 npm create vite@latest auth-forms -- --template react-ts
-cd auth-forms
+cd Assessment_react
 ```
 
 2. Install required dependencies:
 ```bash
 npm install formik yup react-router-dom @types/react-router-dom
+```
+
+3. Install npm packages
+```bash
+npm install
+```
+4. Run the Assessment_react folder
+```
+npm run dev
 ```
 
 ## Project Structure
@@ -36,7 +45,7 @@ auth-forms/
 
 ## CSS Setup
 
-1. Create a new file `src/styles/auth.css`:
+1. Create a new file `src/index.css`:
 ```css
 .auth-container {
   max-width: 400px;
@@ -161,20 +170,6 @@ git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/auth-forms.git
 git push -u origin main
 ```
-
-## Development
-
-1. Start development server:
-```bash
-npm run dev
-```
-
-2. Build for production:
-```bash
-npm run build
-```
-
-## Deployment Options
 
 ### Deploy to GitHub Pages
 
