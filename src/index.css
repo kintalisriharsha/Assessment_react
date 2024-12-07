@@ -1,0 +1,244 @@
+/* Authentication Form Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a2980bd 0%, #26d0cd56 50%, #1a298055 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+    --rotateX: 0deg;
+    --rotateY: 0deg;
+    transform: 
+        rotateX(var(--rotateX))
+        rotateY(var(--rotateY));
+}
+
+.auth-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Updated normal form styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #111111;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    padding-left: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Button styles */
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.submit-button:hover::before {
+    animation: shine 3s ease-in-out infinite;
+}
+
+.toggle-form-button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 
+        background-color 1s ease,
+        color 1s ease;
+}
+
+.toggle-form-button:hover {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.remember-me-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+.remember-me-group label {
+    margin-bottom: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.remember-me-group input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    transform: scale(1.2);
+}
+
+/* Keep your existing animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Success Message */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 480px) {
+    .auth-container {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    input, 
+    .submit-button, 
+    .toggle-form-button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Confetti Animation Styles */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        top: -10%;
+        transform: translateX(0) rotateZ(0deg);
+    }
+    100% {
+        opacity: 0;
+        top: 100%;
+        transform: translateX(100px) rotateZ(360deg);
+    }
+}
+
+/* Different colors for confetti pieces */
+.confetti-red { background-color: #FF4136; }
+.confetti-blue { background-color: #357abd; }
+.confetti-green { background-color: #2ECC40; }
+.confetti-yellow { background-color: #FFDC00; }
+.confetti-purple { background-color: #B10DC9; }
